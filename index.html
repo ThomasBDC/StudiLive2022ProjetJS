@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Mon projet JS</h1>
-
+    <!-- Essayer de créer un wysiwyg -->
     <button onclick="disBonjour()">Dis moi bonjour</button>
 
     <button onclick="utiliseLesSelecteurs()">Utilise les sélecteurs</button>
@@ -36,6 +36,32 @@
             Vous pouvez remplacer le texte ici via le bouton ci-dessus.
         </p>
     </fieldset>
+
+    <fieldset style="margin-top:30px;">
+        <legend>Mon wysiwyg</legend>
+        <div>
+            <label>Titre</label>
+            <input class="onChangeRefreshWysiwyg" type="text" id="titreWysiwyg"/>
+        </div>
+        <div>
+            <label>Src Image</label>
+            <input class="onChangeRefreshWysiwyg" type="text" id="imgWysiwyg"/>
+        </div>
+        <div>
+            <label>Contenu</label>
+            <textarea class="onChangeRefreshWysiwyg" type="text" id="contentWysiwyg"></textarea>
+        </div>
+
+        <div>
+            <button id="btnGenererWysiwyg">Générer</button>
+        </div>
+    </fieldset>
+
+    <div id="resultatWysiwyg">
+        <h2 id="titreWysiwygResultat"></h2>
+        <img src="" id="imgWysiwygResultat" />
+        <p id="contentWysiwygResultat"></p>
+    </div>
 
     <script src="site.js"></script>
 </body>
