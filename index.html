@@ -17,13 +17,19 @@
         <div class="field-container">
             <label>Titre</label>
             <input class="onChangeRefreshWysiwyg" type="text" id="titreWysiwyg"/>
+
+            <label>Couleur du titre</label>
+            <input type="text" class="onChangeRefreshWysiwyg" id="colorTitleWysiwyg" />
+
+            <label>Taille du titre</label>
+            <input type="number" class="onChangeRefreshWysiwyg" id="tailleTitleWysiwyg" value="21"/>
         </div>
         <div class="field-container">
             <label>Source de l'image</label>
             <input class="onChangeRefreshWysiwyg" type="text" id="imgWysiwyg"/>
 
             <label>Largeur max</label>
-            <input class="onChangeRefreshWysiwyg" type="number" id="imgMaxWidthWysiwyg"/>
+            <input value="300" class="onChangeRefreshWysiwyg" type="range" min="15" max="1000" id="imgMaxWidthWysiwyg"/>
         </div>
         <div class="field-container">
             <label>Contenu</label>
