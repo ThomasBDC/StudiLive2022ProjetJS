@@ -5,26 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Mon projet JS</h1>
-    
+    <header>
+        <h1>WYSIWYG</h1>
+        <i>(what you see is what you get)</i>
+    </header>
     <fieldset>
         <legend>Mon wysiwyg</legend>
-        <div>
+        <div class="field-container">
             <label>Titre</label>
             <input class="onChangeRefreshWysiwyg" type="text" id="titreWysiwyg"/>
         </div>
-        <div>
-            <label>Src Image</label>
+        <div class="field-container">
+            <label>Source de l'image</label>
             <input class="onChangeRefreshWysiwyg" type="text" id="imgWysiwyg"/>
+
+            <label>Largeur max</label>
+            <input class="onChangeRefreshWysiwyg" type="number" id="imgMaxWidthWysiwyg"/>
         </div>
-        <div>
+        <div class="field-container">
             <label>Contenu</label>
             <textarea class="onChangeRefreshWysiwyg" type="text" id="contentWysiwyg"></textarea>
         </div>
 
-        <div>
+        <div class="field-container">
             <button id="btnGenererWysiwyg">Générer</button>
         </div>
     </fieldset>
