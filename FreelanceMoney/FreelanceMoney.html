@@ -9,6 +9,60 @@
     <link rel="stylesheet" href="FreelanceMoney.css">
 </head>
 <body>
+    <header>
+        <h1>Freelance Money Calculator et à travers</h1>
+    </header>
+    <form class="formCalcul">
+        <div class="sectionCalcul pricing">
+            <fieldset class="form-container">
+                <legend>Vos tarifs</legend>
+                <div class="form-field">
+                    <label>TH</label>
+                    <input name="TH" type="number" placeholder="Ex : 70"/>
+                </div>
+                <div class="form-field">
+                    <label>TJM</label>
+                    <input name="TJM" type="number" placeholder="Ex : 740"/>
+                </div>
+                <div class="form-field">
+                    <label>Extras</label>
+                    <input name="Extras" type="number" placeholder="Ex : 47"/>
+                </div>
+            </fieldset>
+        </div>
+        <div class="sectionCalcul qte">
+            <fieldset class="form-container">
+                <legend>Quantités</legend>
+                <div class="form-field">
+                    <label>TH</label>
+                    <input name="QteTH" type="number" placeholder="Ex : 140"/>
+                </div>
+                <div class="form-field">
+                    <label>TJM</label>
+                    <input name="QteTJM" type="number" placeholder="Ex : 30"/>
+                </div>
+                <div class="form-field">
+                    <label>Extras</label>
+                    <input name="QteExtras" type="number" placeholder="Ex : 7"/>
+                </div>
+            </fieldset>
+        </div>
+        <div class="sectionCalcul fees"><!-- fees veut dire charges -->
+            <fieldset class="form-container">
+                <legend>Charges</legend>
+                <div class="form-field">
+                    <label>Charge </label>
+                    <input name="Charges" type="number" placeholder="Ex : 140"/>
+                </div>
+            </fieldset>
+        </div>
+        <div class="sectionCalcul validation">
+            <button>Calculer</button>
+        </div>
+        <div class="sectionCalcul result">
+            Ici le résultat
+        </div>
+    </form>
     
     <script src="FreelanceMoney.js"></script>
 </body>
