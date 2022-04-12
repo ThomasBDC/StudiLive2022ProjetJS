@@ -5,65 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freelance Money</title>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="FreelanceMoney.css">
 </head>
 <body>
     <header>
-        <h1>Freelance Money Calculator et à travers</h1>
+        <h1>Freelance Money Calculator (et à travers)</h1>
     </header>
-    <form class="formCalcul">
-        <div class="sectionCalcul pricing">
-            <fieldset class="form-container">
-                <legend>Vos tarifs</legend>
-                <div class="form-field">
-                    <label>TH</label>
-                    <input name="TH" type="number" placeholder="Ex : 70"/>
+    <main class="container">
+        <form class="formCalcul shadow">
+            <div class="sectionCalcul pricing">
+                <h4>Vos tarifs</h4>
+                <div class="form-container">
+                    <div class="form-field">
+                        <label class="form-text">TH</label>
+                        <input class="form-control" name="TH" type="number" placeholder="Ex : 70"/>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-text">TJM</label>
+                        <input class="form-control" name="TJM" type="number" placeholder="Ex : 740"/>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-text">Extras</label>
+                        <input class="form-control" name="Extras" type="number" placeholder="Ex : 47"/>
+                    </div>
                 </div>
-                <div class="form-field">
-                    <label>TJM</label>
-                    <input name="TJM" type="number" placeholder="Ex : 740"/>
+            </div>
+            <div class="sectionCalcul qte">
+                <h4>Quantités</h4>
+                <div class="form-container">
+                    <div class="form-field">
+                        <label class="form-text">TH</label>
+                        <input class="form-control" class="form-control" name="QteTH" type="number" placeholder="Ex : 140"/>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-text">TJM</label>
+                        <input class="form-control" name="QteTJM" type="number" placeholder="Ex : 30"/>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-text">Extras</label>
+                        <input class="form-control" name="QteExtras" type="number" placeholder="Ex : 7"/>
+                    </div>
                 </div>
-                <div class="form-field">
-                    <label>Extras</label>
-                    <input name="Extras" type="number" placeholder="Ex : 47"/>
+            </div>
+            <div class="sectionCalcul fees"><!-- fees veut dire charges -->
+                <h4>Charges</h4>
+                <div class="form-container">
+                    <div class="form-field">
+                        <label class="form-text">Charge </label>
+                        <input class="form-control" name="Charges" type="number" placeholder="Ex : 140"/>
+                    </div>
                 </div>
-            </fieldset>
-        </div>
-        <div class="sectionCalcul qte">
-            <fieldset class="form-container">
-                <legend>Quantités</legend>
-                <div class="form-field">
-                    <label>TH</label>
-                    <input name="QteTH" type="number" placeholder="Ex : 140"/>
+            </div>
+            <div class="sectionCalcul validation text-center">
+                <button type="button" class="btn btn-primary">Calculer</button>
+            </div>
+            
+            <div class="sectionCalcul result">
+                <div class="form-container">
+                    <div class="resultDiv resultBrut">
+                        <p>BRUT</p>
+                        <span id="resultatBrut">0€</span>
+                    </div>
+                    <div class="resultDiv resultDifference">
+                        <p>Taxes</p>
+                        <span id="resultatDifference">0€</span>
+                    </div>
+                    <div class="resultDiv resultNet">
+                        <p>NET</p>
+                        <span id="resultatNet">0€</span>
+                    </div>
                 </div>
-                <div class="form-field">
-                    <label>TJM</label>
-                    <input name="QteTJM" type="number" placeholder="Ex : 30"/>
-                </div>
-                <div class="form-field">
-                    <label>Extras</label>
-                    <input name="QteExtras" type="number" placeholder="Ex : 7"/>
-                </div>
-            </fieldset>
-        </div>
-        <div class="sectionCalcul fees"><!-- fees veut dire charges -->
-            <fieldset class="form-container">
-                <legend>Charges</legend>
-                <div class="form-field">
-                    <label>Charge </label>
-                    <input name="Charges" type="number" placeholder="Ex : 140"/>
-                </div>
-            </fieldset>
-        </div>
-        <div class="sectionCalcul validation">
-            <button>Calculer</button>
-        </div>
-        <div class="sectionCalcul result">
-            Ici le résultat
-        </div>
-    </form>
+            </div>
+        </form>
+    </main>
     
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="FreelanceMoney.js"></script>
 </body>
 </html>
