@@ -10,10 +10,10 @@
 </head>
 <body>
     <header>
-        <h1>Freelance Money Calculator (et à travers)</h1>
+        <h1 class="mb-5">Freelance Money Calculator (et à travers)</h1>
     </header>
     <main class="container">
-        <form class="formCalcul shadow">
+        <form class="formCalcul shadow" id="formCalculGain">
             <div class="sectionCalcul pricing">
                 <h4>Vos tarifs</h4>
                 <div class="form-container">
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="sectionCalcul validation text-center">
-                <button type="button" class="btn btn-primary">Calculer</button>
+                <button onclick="CalculGain()" type="button" class="btn btn-primary">Calculer</button>
             </div>
             
             <div class="sectionCalcul result">
