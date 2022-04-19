@@ -34,6 +34,8 @@ function OnMouseLeave(){
 
 var btn = document.getElementById("btnGenererWysiwyg");
 btn.addEventListener('click', RefreshWysiwyg);
+
+
 var mesInputsWithEvents = document.querySelectorAll(".onChangeRefreshWysiwyg");
 
 mesInputsWithEvents.forEach(monInput => {
