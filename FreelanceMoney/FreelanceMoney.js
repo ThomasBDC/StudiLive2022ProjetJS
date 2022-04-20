@@ -1,10 +1,9 @@
 //TODO LIST : 
-//1 - Stocker en cookie le formulaire, pour le remplir avec notre dernier calcul
-//2 - Historique de calcul (seulement si clic sur calculer)
-//Imprimer la page ??
-//Convertir en pdf ou Excel ??
-//Animation ??
-//Envoyer mail ??
+
+//1 - Historique de calcul (seulement si clic sur calculer)
+//2 - Imprimer la page ??
+//3 - Animation ??
+//4 - Envoyer mail ??
 
 function CalculGain(){
     //On vérifie les inputs
@@ -39,11 +38,39 @@ function CalculGain(){
     let chargeADeduire = (totalBrut * (charges/100));
     let totalNet = totalBrut - chargeADeduire;
 
-    document.getElementById("resultatBrut").innerText = totalBrut.toFixed(2)+" €";
-    document.getElementById("resultatDifference").innerText = chargeADeduire.toFixed(2)+" €";
-    document.getElementById("resultatNet").innerText = totalNet.toFixed(2)+" €";
 
+
+    //Animer le résultat 
+    animateCompteur("resultatBrut", totalBrut);
+    animateCompteur("resultatDifference", chargeADeduire);
+    animateCompteur("resultatNet", totalNet);
 }
+
+
+async function animateCompteur(idARemplacer, total){
+    let cpt = 0;
+    let animationDuration = 70;
+    let monElementHtmlDeResultat = document.getElementById(idARemplacer);
+    //total c'est 140
+    //compter 140 en 1000 ms
+
+    if(monElementHtmlDeResultat.innerText != total.toFixed(2)+" €"){
+        let increment = Math.round(total / 10);
+        if(increment == 0)
+            increment =1;
+        while(cpt <= total){
+            monElementHtmlDeResultat.innerText = cpt.toFixed(2)+" €";
+            await timer(animationDuration);
+            cpt += increment;
+        }
+
+        monElementHtmlDeResultat.innerText = total.toFixed(2)+" €";
+    }
+} 
+ 
+function timer(ms) {
+     return new Promise(res => setTimeout(res, ms)); 
+    }
 
 function CheckInputs(){
     let mesInputs = document.querySelectorAll('#formCalculGain input.form-control');

@@ -40,6 +40,7 @@ body{
     font-weight: 500;
     border: solid 1px #154440;
     border-radius: 5%;
+    min-width: 140px;
 }
 
 .resultBrut{
