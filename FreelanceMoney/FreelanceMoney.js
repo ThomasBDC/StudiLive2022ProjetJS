@@ -2,7 +2,6 @@
 
 //1 - Historique de calcul (seulement si clic sur calculer)
 //2 - Imprimer la page ??
-//3 - Animation ??
 //4 - Envoyer mail ??
 
 function CalculGain(){
