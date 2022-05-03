@@ -13,36 +13,45 @@ function CalculGain(){
     //On le transforme en objet FormData
     let formObj = new FormData(myForm);
 
+
+    //Je veux créer une classe calculdata
+    //Le constructeur récupère un objet formdata en parametre
+    //et il sera similaire à l'objet Object ci-dessous
+
     //On récupère les inputs de notre formulaire par leurs noms
-    let tauxHoraire = formObj.get('TH');
-    let tauxJournalier = formObj.get('TJM');
-    let extras = formObj.get('Extras');
+    let myCalculDatas = {
+        tauxHoraire : formObj.get('TH'),
+        tauxJournalier : formObj.get('TJM'),
+        extras : formObj.get('Extras'),
+        qtetauxHoraire : formObj.get('QteTH'),
+        qtetauxJournalier : formObj.get('QteTJM'),
+        qteextras : formObj.get('QteExtras'),
+        charges : formObj.get('Charges'),
 
-    let qtetauxHoraire = formObj.get('QteTH');
-    let qtetauxJournalier = formObj.get('QteTJM');
-    let qteextras = formObj.get('QteExtras');
-
-    let charges = formObj.get('Charges');
-
-    //On commence le calcul
-    let gainHeure = tauxHoraire * qtetauxHoraire;
-
-    let gainJour = tauxJournalier * qtetauxJournalier;
-
-    let gainExtras = extras * qteextras;
-
-    let totalBrut = gainHeure + gainJour + gainExtras;
-
-
-    let chargeADeduire = (totalBrut * (charges/100));
-    let totalNet = totalBrut - chargeADeduire;
-
-
+        gainHeure: function(){
+            return this.tauxHoraire * this.qtetauxHoraire
+        },
+        gainJour : function(){
+            return this.tauxJournalier * this.qtetauxJournalier
+        },
+        gainExtras : function(){
+            return this.extras * this.qteextras
+        },
+        totalBrut : function(){
+            return this.gainHeure() + this.gainJour() + this.gainExtras()
+        },
+        chargeADeduire: function(){
+            return (this.totalBrut() * (this.charges/100))
+        },
+        totalNet : function(){
+            return this.totalBrut() - this.chargeADeduire()
+        }
+    };
 
     //Animer le résultat 
-    animateCompteur("resultatBrut", totalBrut);
-    animateCompteur("resultatDifference", chargeADeduire);
-    animateCompteur("resultatNet", totalNet);
+    animateCompteur("resultatBrut", myCalculDatas.totalBrut());
+    animateCompteur("resultatDifference", myCalculDatas.chargeADeduire());
+    animateCompteur("resultatNet", myCalculDatas.totalNet());
 }
 
 
