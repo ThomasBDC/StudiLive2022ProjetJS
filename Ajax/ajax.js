@@ -10,26 +10,21 @@
 //faire un tableau avec la pagination déjà gérée (nb pages, éléments totaux...)
 
 
-function ShowUsers(){
-    //Initialise ma requête
-    //Je mets ma lettre dans mon enveloppe
-
+//Appel ajax, et on continue
+function getUsers(numeroPage){
+    document.getElementById("allUtilisateurs").style.opacity = 0;
+    document.getElementById("loader").style.opacity = 1;
+    document.getElementById("pagination").innerHTML = '';
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://reqres.in/api/users?page=1');
-    
-    //Je veux choper le retour de ma requête
+    const url = 'https://reqres.in/api/users?delay=3&page='+numeroPage;
+    xhr.open('GET', url);
     xhr.addEventListener('readystatechange', function() {
         if(xhr.readyState === 4) {
             if(xhr.status === 200){
                 //On gère le retour de notre appel Ajax
                 console.log("Response = " + xhr.response);
                 const object = JSON.parse(xhr.response);
-
-                let myhtml = "";
-                object.data.forEach(element => {
-                    myhtml += '<div><p>'+element.first_name+' '+element.last_name+'</p> </div>'
-                });
-                document.getElementById("allUtilisateurs").innerHTML = myhtml;
+                setUsersInPage(object);
             }
             else if(xhr.status == 404){
                 alert("Impossible de trouver l'url de la requête ajax");
@@ -39,8 +34,36 @@ function ShowUsers(){
             }
         };
     });
-
-
-    //Je la donne au facteur
     xhr.send();
 }
+
+//On affiche le résultat de l'appel ajax dans la page
+function setUsersInPage(listUsers){
+    //On ajoute la liste des utilisateurs
+    let myhtml = "";
+    listUsers.data.forEach(element => {
+        myhtml += '<div><img src="'+element.avatar+'"/><p>'+element.first_name+' '+element.last_name+'</p> </div>'
+    });
+    document.getElementById("loader").style.opacity = 0;
+    document.getElementById("allUtilisateurs").innerHTML = myhtml;
+    document.getElementById("allUtilisateurs").style.opacity = 1;
+    //On crée la pagination
+    let nbPage = listUsers.total_pages;
+    let currentPage = listUsers.page;
+
+    let htmlPagination = "";
+    for (let i = 1; i <= nbPage; i++) {
+        if(i == currentPage){
+            htmlPagination += '<button class="btn active" disabled>'+i+'</button>'
+        }
+        else{
+            htmlPagination += '<button class="btn" onclick="getUsers('+i+')">'+i+'</button>'
+        }
+    }
+
+    document.getElementById("pagination").innerHTML = htmlPagination;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    getUsers(1);
+});

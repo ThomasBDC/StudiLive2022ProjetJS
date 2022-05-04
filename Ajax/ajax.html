@@ -11,15 +11,16 @@
     <header>
         <h1>AJAX</h1>
     </header>
-
-        <button onclick="ShowUsers()">Afficher les utilisateurs</button>
-        <div id="allUtilisateurs">
-            <i>Ici seront affichés les utilisateurs</i>
+    <div id="loader">
+        <div class="lds-ripple"><div></div><div></div></div>
+    </div>
+        <div class="users-container" id="allUtilisateurs">
+            
         </div>
 
-
-
-        
+        <div class="myPagination" id="pagination">
+            
+        </div>
         <script src="ajax.js"></script>
 </body>
 </html>
